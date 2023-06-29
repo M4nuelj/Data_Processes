@@ -1,12 +1,14 @@
 import pandas as pd
 import datetime
 
-df= pd.read_excel('Disposal & Transfer Log (Responses).xlsx',
+path1 = 'C:/Users/j.renza/Documents/Returns/'
+
+df= pd.read_excel(path1 + 'Disposal & Transfer Log (Responses).xlsx',
                     usecols= ['Type of Return', 'Inspection Date', 'Transfer No.', 'Item',
                      'Quantity (CS)', 'Quantity (Lbs)', 'Pack Date','Lot', 'Vendor',
                      'Reason', 'Comments'])
 
-df2 = pd.read_excel('Products.xlsx')
+df2 = pd.read_excel(path1 + 'Products.xlsx')
 
 df3 = df.merge(df2, left_on = 'Item', right_on = 'Item_Code')
 
@@ -98,6 +100,6 @@ FinalTransfers['Lot2'] = list(map(lambda x : get_lot_from_date(x), FinalTransfer
 
 print(('File saved sucessfully'))
 
-with pd.ExcelWriter('Disposals & Transfers.xlsx') as writer:
+with pd.ExcelWriter(path1 + 'Disposals & Transfers.xlsx') as writer:
     FinalDisposals.to_excel(writer, sheet_name = 'Disposals', index = False)
     FinalTransfers.to_excel(writer, sheet_name = 'Transfers', index = False)
