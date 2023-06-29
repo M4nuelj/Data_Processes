@@ -101,6 +101,9 @@ FinalDisposals = pd.DataFrame(DisposalsDetails)
 
 FinalTransfers = pd.DataFrame(TransfersDetails)
 
+FinalDisposals['PackDate'] = FinalDisposals.PackDate.astype('datetime64[ns]')
+FinalTransfers['PackDate'] = FinalTransfers.PackDate.astype('datetime64[ns]')
+
 FinalDisposals.Date = FinalDisposals.Date.dt.strftime('%m/%d/%Y')
 
 FinalDisposals.PackDate = FinalDisposals.PackDate.dt.strftime('%m/%d/%Y')
