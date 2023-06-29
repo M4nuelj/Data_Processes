@@ -47,14 +47,16 @@ Disposals['PackDate'] = Disposals.PackDate.astype('str')
 Transfers['PackDate'] = Transfers.PackDate.astype('str')
 
 
-Disposals['Lot'] = Disposals.apply(lambda row: get_lot_from_date(row['PackDate']) if row['Item_Type'] != 'BIBO' else 'N/A', axis = 1)
+Disposals['Lot'] = Disposals.apply(lambda row: int(get_lot_from_date(row['PackDate'])) if row['Item_Type'] != 'BIBO' else 'N/A', axis = 1)
 
-Transfers['Lot'] = Transfers.apply(lambda row: get_lot_from_date(row['PackDate']) if row['Item_Type'] != 'BIBO' else 'N/A', axis = 1)
+Transfers['Lot'] = Transfers.apply(lambda row: int(get_lot_from_date(row['PackDate'])) if row['Item_Type'] != 'BIBO' else 'N/A', axis = 1)
 
 
-Disposals['NewPackDate'] = Disposals.apply(lambda row: row['PackDate'] if row['PackDate'] != '01/01/2000' else 'N/A', axis = 1)
+# print(Disposals.PackDate)
 
-Transfers['NewPackDate'] = Transfers.apply(lambda row: row['PackDate'] if row['PackDate'] != '01/01/2000' else 'N/A', axis = 1)
+Disposals['NewPackDate'] = Disposals.apply(lambda row: row['PackDate'] if row['PackDate'] != '2000-01-01' else 'N/A', axis = 1)
+
+Transfers['NewPackDate'] = Transfers.apply(lambda row: row['PackDate'] if row['PackDate'] != '2000-01-01' else 'N/A', axis = 1)
 
 DisposalsDetails = {'Date': Disposals.Date,
                     'Item': Disposals.Item,
