@@ -15,8 +15,7 @@ path = 'C:/Users/j.renza/Documents/Returns/'
 
 df= pd.read_excel(path + 'Disposal & Transfer Log (Responses).xlsx',
                     usecols= ['Type of Return', 'Inspection Date', 'Transfer No.', 'Item',
-                     'Quantity (CS)', 'Quantity (Lbs)', 'Pack Date', 'Vendor',
-                     'Reason', 'Comments'])
+                     'Quantity (CS)', 'Quantity (Lbs)', 'Pack Date','Reason', 'Comments'])
 
 # df is a DataFrame created from the export of the Google Form found in the following link:
 # https://docs.google.com/forms/d/e/1FAIpQLSelAu5GL7vi91SIpMNKC60faZtV_Ei5RJmTBmEJcuqGGQV82Q/viewform
@@ -39,11 +38,11 @@ df3 = df.merge(df2, left_on = 'Item', right_on = 'Item_Code')
 
 Disposals = df3[df3['Type of Return'] == 'Disposal']
 
-Disposals.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Vendor', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type', 'Vendor2']
+Disposals.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate','Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type', 'Vendor']
 
 Transfers = df3[df3['Type of Return'] == 'Transfer']
 
-Transfers.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Vendor', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type', 'Vendor2']
+Transfers.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type', 'Vendor']
 
 Disposals['PackDate'] = Disposals.PackDate.astype('str')
 Transfers['PackDate'] = Transfers.PackDate.astype('str')
@@ -61,7 +60,7 @@ DisposalsDetails = {'Date': Disposals.Date,
                     'WH01': "X",
                     'WH94': "",
                     'Description': Disposals.Item_Name,
-                    'Vendor': Disposals.Vendor2,
+                    'Vendor': Disposals.Vendor,
                     'Disposal': 'D',
                     'Reprocess': "",
                     'Repack': "",
@@ -82,7 +81,7 @@ TransfersDetails = {'Date': Transfers.Date,
                     'WH01': "X",
                     'WH94': "",
                     'Description': Transfers.Item_Name,
-                    'Vendor': Transfers.Vendor2,
+                    'Vendor': Transfers.Vendor,
                     'Transfers': 'T',
                     'Reprocess': "X",
                     'Repack': "",
