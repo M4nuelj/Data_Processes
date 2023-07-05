@@ -39,11 +39,11 @@ df3 = df.merge(df2, left_on = 'Item', right_on = 'Item_Code')
 
 Disposals = df3[df3['Type of Return'] == 'Disposal']
 
-Disposals.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Vendor', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type']
+Disposals.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Vendor', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type', 'Vendor2']
 
 Transfers = df3[df3['Type of Return'] == 'Transfer']
 
-Transfers.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Vendor', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type']
+Transfers.columns = ['Type', 'Date', 'Transfer', 'Item', 'CS', 'Lbs', 'PackDate', 'Vendor', 'Reason', 'Comments', 'Item_Code', 'Item_Name', 'Item_Type_Code', 'Item_Type', 'Vendor2']
 
 Disposals['PackDate'] = Disposals.PackDate.astype('str')
 Transfers['PackDate'] = Transfers.PackDate.astype('str')
@@ -61,7 +61,7 @@ DisposalsDetails = {'Date': Disposals.Date,
                     'WH01': "X",
                     'WH94': "",
                     'Description': Disposals.Item_Name,
-                    'Vendor': Disposals.Vendor,
+                    'Vendor': Disposals.Vendor2,
                     'Disposal': 'D',
                     'Reprocess': "",
                     'Repack': "",
@@ -82,7 +82,7 @@ TransfersDetails = {'Date': Transfers.Date,
                     'WH01': "X",
                     'WH94': "",
                     'Description': Transfers.Item_Name,
-                    'Vendor': Transfers.Vendor,
+                    'Vendor': Transfers.Vendor2,
                     'Transfers': 'T',
                     'Reprocess': "X",
                     'Repack': "",

@@ -6,6 +6,7 @@ warnings.filterwarnings("ignore")
 
 file_path = "C:/Users/j.renza/Documents/Inspections_2023/Delta_Inspections.xlsx"
 
+path = "C:/Users/j.renza/Documents/Inspections_2023/"
 
 def read_excel_file(file_path):
     # Open the Excel file
@@ -88,7 +89,7 @@ Total_Inspections = pd.concat(DFs, axis=0)
 Total_Inspections.reset_index(drop = True, inplace = True)
 
 try:
-    Total_Inspections.to_excel('Total_Inspections.xlsx', index = False)
+    Total_Inspections.to_excel(path + 'Total_Inspections.xlsx', index = False)
 except PermissionError:
     print("The file 'Total_Inspections.xlsx' is open. Please close it and run the code again.")
 else:
