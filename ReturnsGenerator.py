@@ -1,7 +1,15 @@
 import pandas as pd
 from DisposalsTransfersMelt import FinalDisposals,FinalTransfers
 
+# This code will create the files with Disposals and Transfers
+# It is taking two Data Frames that are created by the DisposalsTransfersMelt code
+# Finally one or two files will be exported depending on the existence of Disposals or Transfers
+
 path = 'C:/Users/j.renza/Documents/Returns/'
+
+
+# The code will ask the user for the transfers number. The user must enter the number or numbers and 
+# in case there is more than one they should be separated by ','
 
 DisposalsNumber = input("Type the Transfer Nº for Disposals (if there's more than one separate them by ','): ")
 
@@ -17,9 +25,6 @@ for number in DisposalsNumber:
 TNumbers = []
 for number in TransfersNumber:
     TNumbers.append(float(number.strip()))
-
-# 134407
-# 134141
 
 Disposals = FinalDisposals[FinalDisposals.TransferNo.isin(DNumbers)]
 
