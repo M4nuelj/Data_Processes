@@ -1,0 +1,121 @@
+%%% Template Quality Analyst Juan Felipe Renza
+
+
+\documentclass[12pt,a4paper, USA]{article}
+
+%%%%%%% Heading
+\newcommand{\workingDate}{\textsc{\selectlanguage{english}\today}}
+\newcommand{\userName}{Quality Analyst}
+\usepackage{researchdiary_png}
+
+
+\begin{document}
+
+\section{Summary: May 2023}
+
+To gain a more comprehensive understanding of the credit memo's 
+behavior within the Quality Department this analysis takes data from May 2023 to conclude as follows.\\
+There are 3 different credit reasons that are labeled as quality issues:
+
+\begin{itemize}
+    \item {Spoilage - Customer}
+    \item{Bad Appearance}
+    \item{Spoilage PM}
+\end{itemize}
+
+Therefore, the analysis will be done for each one of those reasons individually to gain insight into how each one impacted this month's credits.
+
+\section{Credit Reasons: Quality Department}
+
+\subsection{Spoilage - Customer}
+
+In May 2023, this reason represented 10,72\% out of the total paid this month. Due to Spoilage - Customer Prime Meats paid USD 16.591,69.
+
+\subsubsection{State Vs Credits}
+
+Now, if we take a look into this credit's behavior, by state, in figure \ref{fig: StateVsCreditsSC} we can see that in May the state with the most significant amount of money paid was Georgia, with a total of USD 6.119,79 which represents the 36,88\% out of the total paid this month for Spoilage - Customer. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{SCbyState.JPG}
+    \caption{Credits by State: Spoilage Customer}
+    \label{fig: StateVsCreditsSC}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Bad Appearance}
+
+This month, bad appearance represented 12,48\% out of the total paid in May. Due to Bad Appearance, Prime Meats paid in credits USD 19,314.66.
+
+\subsubsection{State Vs Credits}
+
+Now, if we take a look into  this credits' behavior, by state, represented in figure \ref{fig: StateVsCreditsBA}, we can see that in May the state with the most significant amount of money paid was Virginia, with a total of USD 18,223.89 which represents the 94,35\% out of the total paid this month for bad appearance.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{BAbyState.jpg}
+    \caption{Credits by State: Bad Appearance}
+    \label{fig: StateVsCreditsBA}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Spoilage PM}
+
+This month, there was not any credit given for this reason.
+
+\subsubsection{State Vs Credits}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Credits Analysis: Statistical behavior }
+
+Taking into account that we are going to compare two variables that are extremely different in scale, the data is transformed to be able to effectively compare the relationships between them. Consequently, is standardized using the following equation.
+
+\begin{equation}
+    Z = \frac{x - \mu}{s}
+\end{equation}
+
+\textbf{where:}
+\begin{itemize}
+    \item{x is the datum to be transformed}
+    \item{$\mu$ is the data's median}
+    \item{s is the standard deviation}
+\end{itemize}
+
+\subsection{Histogram: Credits May 2023}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{HistogramCredits2023.jpg}
+    \caption{Histogram Credits April 2023}
+    \label{fig: HistogramCredits2023}
+\end{figure}
+
+It can be seen in the figure \ref{fig: HistogramCredits2023} above that credits during  May 2023 are distributed as expected; there is a higher amount of credits with a lower amount paid and some statistical outliers.
+
+\subsection{Scatter-plot: Sales Vs Credits May 2023}
+
+The scatter-plot seen in figure \ref{fig: ScatterSales2023} shows the relationship between sales and credits. It can be seen that there are some statistical outliers; however, there is not a visible correlation between the variables; therefore, further analysis must be done looking for relationships that may help in the prediction and control of credits. The credits that were plotted are those concerning the quality department during the whole month.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ScatterSales.jpg}
+    \caption{Scatter-plot: Sales Vs Credits May 2023}
+    \label{fig: ScatterSales2023}
+\end{figure}
+
+\subsection{Credits: 2023}
+
+It can be seen in figure \ref{fig: CreditsbyMonth} the variation of credits imputed to the Quality Department in the year.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{CreditsbyMonth.jpg}
+    \caption{Credits by month: 2023}
+    \label{fig: CreditsbyMonth}
+\end{figure}
+
+\end{document}
+
